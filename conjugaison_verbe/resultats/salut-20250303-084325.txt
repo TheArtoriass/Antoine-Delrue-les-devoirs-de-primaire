@@ -1,0 +1,13 @@
+********Je/J' res;Je/J' disais
+********Tu ;Tu disais
+********Il/Elle/On ;Il/Elle/On disait
+********Nous ;Nous disions
+********Vous ;Vous disiez
+********Ils/Elles ;Ils/Elles disaient
+********Je/J' test;Je/J' brillais
+********Tu ;Tu brillais
+********Il/Elle/On ;Il/Elle/On brillait
+********Nous ;Nous brillions
+********Vous ;Vous brilliez
+********Ils/Elles ;Ils/Elles brillaient
+0

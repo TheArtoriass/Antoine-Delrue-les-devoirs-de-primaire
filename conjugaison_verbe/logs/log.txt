@@ -12,3 +12,5 @@
 [03/03/2025 08h41m28s] - ::1 : correction.php - salut - Question numéro 1
 [03/03/2025 08h41m34s] - ::1 : question.php - salut - Question numéro 2
 [03/03/2025 08h41m50s] - ::1 : correction.php - salut - Question numéro 2
+[03/03/2025 08h43m25s] - ::1 : fin.php - salut
+[03/03/2025 08h43m28s] - ::1 : index.php
