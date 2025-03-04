@@ -26,8 +26,27 @@ if (!file_exists($historique_path)) {
 // Lire le contenu du fichier historique
 $historique_content = file_get_contents($historique_path);
 
+// Récupérer l'ID de l'exercice depuis le chemin du fichier historique
+$exercise_id = basename($historique_path, '.txt');
+
+// Récupérer le type d'exercice depuis la base de données
+$stmt = $pdo->prepare("SELECT exercise_type FROM exercises WHERE id = ?");
+$stmt->execute([$exercise_id]);
+$exercise = $stmt->fetch();
+
+if (!$exercise) {
+    echo "Type d'exercice non trouvé.";
+    exit;
+}
+
+$exercise_type = $exercise['exercise_type'];
+
+// Lire le contenu du fichier historique
+$historique_content = file_get_contents($historique_path);
+
+
 // Trouver le chemin du fichier de résultats
-$result_path = str_replace('./resultats/', './addition/resultats/', $historique_content);
+$result_path = str_replace('./resultats/', "./$exercise_type/resultats/", $historique_content);
 
 // Vérifier si le fichier de résultats existe
 if (!file_exists($result_path)) {
@@ -98,7 +117,13 @@ $score = array_pop($lines); // Dernière ligne = score
         <h2>Résultats :</h2>
         <?php foreach ($lines as $line): ?>
             <?php
-            if (strpos($line, '********') !== false) {
+            if ($exercise_type == 'conjugaison_phrase' && strpos($line, '***') !== false) {
+                // Erreur : Séparer les valeurs
+                $parts = explode(';', $line);
+                $question = trim($parts[0]);
+                $correct_answer = isset($parts[1]) ? trim($parts[1]) : '?';
+                echo "<p class='incorrect'>$question (Faux)</p>";
+            } elseif (strpos($line, '********') !== false) {
                 // Erreur : Séparer les valeurs
                 $parts = explode(' = ', str_replace('********', '', $line));
                 $question = trim($parts[0]);
@@ -106,7 +131,11 @@ $score = array_pop($lines); // Dernière ligne = score
                 echo "<p class='incorrect'>$question = $answer (Faux)</p>";
             } else {
                 // Bonne réponse
-                echo "<p class='correct'>$line (Correct)</p>";
+                if ($exercise_type == 'conjugaison_phrase') {
+                    echo "<p class='correct'>$line</p>";
+                } else {
+                    echo "<p class='correct'>$line (Correct)</p>";
+                }
             }
             ?>
         <?php endforeach; ?>

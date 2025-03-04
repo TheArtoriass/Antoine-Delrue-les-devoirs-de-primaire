@@ -30,11 +30,11 @@
 							
 							
 							
-							<!-- Mise en minuscule du mot entré -->
-							<?php $_POST['mot']=strtolower($_POST['mot']); ?>
+							 <!-- Mise en minuscule et suppression des espaces du mot entré -->
+							<?php $_POST['mot'] = trim(strtolower($_POST['mot'])); ?>
 
 							<?php 
-								if($_POST['mot']==$_POST['correction']){
+								if($_POST['mot'] == trim(strtolower($_POST['correction']))){
 									echo '<h1>Super '.$_SESSION['prenom'].' ! Bonne réponse.</h1>';
 									$_SESSION['nbBonneReponse']=$_SESSION['nbBonneReponse']+1;
 									$_SESSION['historique']=$_SESSION['historique'].$_POST['sujet'].' '.$_POST['mot'].' '.substr($_POST['finDePhrase'],0,-1)."\n";

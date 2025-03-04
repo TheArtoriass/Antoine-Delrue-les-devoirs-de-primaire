@@ -78,6 +78,10 @@ file_put_contents($history_path, $result_path);
                             <form action="./index.php" method="post">
                                 <input type="submit" value="Recommencer" autofocus>
                             </form>
+                            <br/>
+                            <form action="http://localhost/index.php" method="get">
+                                <input type="submit" value="Retour à l'accueil">
+                            </form>
                         </center>
                     </td>
                     <td style="width:280px;height:430px;background-image:url('./images/NE.jpg');background-repeat:no-repeat;"></td>
