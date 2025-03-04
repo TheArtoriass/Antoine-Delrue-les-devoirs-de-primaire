@@ -1,4 +1,5 @@
 <?php
+
 	@ob_start();
     include 'utils.php';
     log_adresse_ip("logs/log.txt","index.php");
@@ -32,15 +33,27 @@
 					<td style="width:1000px;height:430px;background-image:url('./images/NO.jpg');background-repeat:no-repeat;">
 						<center>
 						
+						<?php
+							if (!isset($_SESSION['user_id'])) {
+								echo '<div style="margin-bottom: 20px;">
+									<a href="../register.php" style="margin-right: 15px;">Inscription</a>
+									<a href="../login.php" style="margin-right: 15px;">Connexion</a>
+								</div>';
+							} else {
+								echo '<div style="margin-bottom: 20px;">
+									<a href="../profile.php">Profil</a>
+									<a href="../logout.php" style="margin-left: 15px;">Déconnexion</a>
+								</div>';
+							}
+						?>
 						
 						
 						
-						
-							<h1>Bonjour !</h1><br />
+						<h1>Bonjour !</h1><br />
 							<h2>Nous allons faire du calcul mental. Tu devras faire <?php echo ''.$_SESSION['nbMaxQuestions'].'' ?> calculs.</h2><br />
 							<h3>Mais avant, Quel est ton prénom ?</h3>
 							<form action="./question.php" method="post">
-								<input type="text" id="prenom" name="prenom" autocomplete="off" autofocus><br /><br /><br />
+								<input type="text" id="prenom" name="prenom" autocomplete="off" autofocus value="<?php echo isset($_SESSION['user_first_name']) ? htmlspecialchars($_SESSION['user_first_name']) : ''; ?>"><br /><br /><br />
 								<input type="submit" value="Commencer">
 							</form>
 						

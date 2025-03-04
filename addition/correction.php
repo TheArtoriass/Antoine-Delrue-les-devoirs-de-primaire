@@ -29,7 +29,12 @@
 		
 		
 							<?php 
-								if($_POST['mot']==$_POST['correction']){
+							// Supprime les espaces invisibles et insécables
+							$_POST['mot'] = preg_replace('/\s+/u', '', $_POST['mot']);
+							$_POST['correction'] = preg_replace('/\s+/u', '', $_POST['correction']);
+							
+								if ((int) trim($_POST['mot']) === (int) trim($_POST['correction'])) {
+
 									echo '<h1>Super '.$_SESSION['prenom'].' ! Bonne réponse.</h1>';
 									$_SESSION['nbBonneReponse']=$_SESSION['nbBonneReponse']+1;
 									$_SESSION['historique']=$_SESSION['historique'].''.$_POST['operation'].$_POST['correction']."\n";

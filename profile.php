@@ -26,17 +26,60 @@ echo "<h1>Profil de " . htmlspecialchars($user['first_name']) . " " . htmlspecia
 echo "<p>Email: " . htmlspecialchars($user['email']) . "</p>";
 echo "<p>Rôle: " . htmlspecialchars($user['role']) . "</p>";
 
+
 if ($user['role'] == 'enfant') {
     // Récupérer les exercices réalisés par l'enfant
     $stmt = $pdo->prepare("SELECT * FROM exercises WHERE user_id = ?");
     $stmt->execute([$_SESSION['user_id']]);
     $exercises = $stmt->fetchAll();
 
-    echo "<h2>Exercices réalisés</h2><ul>";
-    foreach ($exercises as $exercise) {
-        echo "<li>" . htmlspecialchars($exercise['exercise_type']) . " - Score: " . htmlspecialchars($exercise['score']) . " - Date: " . htmlspecialchars($exercise['date']) . "</li>";
+    // Vérifier s'il y a des exercices
+    if (count($exercises) > 0) {
+        // Calcul des statistiques
+        $total_exercises = count($exercises);
+        $scores = array_column($exercises, 'score'); // Récupérer tous les scores
+        $average_score = round(array_sum($scores) / $total_exercises, 2);
+        $best_score = max($scores);
+        $worst_score = min($scores);
+
+        echo "<h2>Statistiques générales</h2>";
+        echo "<ul>
+                <li>Nombre total d'exercices : <strong>$total_exercises</strong></li>
+                <li>Score moyen : <strong>$average_score</strong></li>
+                <li>Meilleur score : <strong>$best_score</strong></li>
+                <li>Pire score : <strong>$worst_score</strong></li>
+              </ul>";
+
+        // Générer les données pour le graphique
+        $exercise_labels = [];
+        $exercise_scores = [];
+        foreach ($exercises as $exercise) {
+            $exercise_labels[] = htmlspecialchars($exercise['date']);
+            $exercise_scores[] = $exercise['score'];
+        }
+
+        echo "<h2>Exercices réalisés</h2>";
+        echo "<ul>";
+        foreach ($exercises as $exercise) {
+            // Génération du chemin du fichier historique
+            $historique_path = urlencode($exercise['exercise_type'] . "/historique/" . $exercise['id'] . ".txt");
+
+            // Lien vers infos_exos.php avec le chemin en paramètre
+            echo "<li>
+                    <a href='infos_exos.php?historique=$historique_path'>" . 
+                        htmlspecialchars($exercise['exercise_type']) . 
+                        " - Score: " . htmlspecialchars($exercise['score']) . 
+                        " - Date: " . htmlspecialchars($exercise['date']) . 
+                    "</a>
+                  </li>";
+        }
+        echo "</ul>";
+    } else {
+        echo "<p>Aucun exercice trouvé.</p>";
     }
-    echo "</ul>";
+
+
+
 
 } elseif ($user['role'] == 'parent') {
     // Récupérer les enfants du parent
@@ -89,3 +132,4 @@ if ($user['role'] == 'enfant') {
     echo '</form>';
 }
 ?>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

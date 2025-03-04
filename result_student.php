@@ -2,8 +2,6 @@
 // result_student.php
 
 include 'db.php';
-
-// profile.php
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
@@ -35,9 +33,31 @@ $stmt = $pdo->prepare("SELECT * FROM exercises WHERE user_id = ?");
 $stmt->execute([$student_id]);
 $exercises = $stmt->fetchAll();
 
-echo "<h2>Exercices réalisés</h2><ul>";
-foreach ($exercises as $exercise) {
-    echo "<li>" . htmlspecialchars($exercise['exercise_type']) . " - Score: " . htmlspecialchars($exercise['score']) . " - Date: " . htmlspecialchars($exercise['date']) . "</li>";
+echo "<h2>Exercices réalisés</h2>";
+
+if (count($exercises) > 0) {
+    echo "<ul>";
+    foreach ($exercises as $exercise) {
+        $exercise_type = htmlspecialchars($exercise['exercise_type']);
+        $score = htmlspecialchars($exercise['score']);
+        $date = htmlspecialchars($exercise['date']);
+        $exercise_id = $exercise['id']; // On récupère l'ID de l'exercice
+
+        // Construire le chemin du fichier historique
+        $historique_path = urlencode("$exercise_type/historique/$exercise_id.txt");
+
+        // Lien vers infos_exos.php avec le bon fichier historique
+        echo "<li>
+                <a href='infos_exos.php?historique=$historique_path'>
+                    $exercise_type - Score: $score - Date: $date
+                </a>
+              </li>";
+    }
+    echo "</ul>";
+} else {
+    echo "<p>Aucun exercice trouvé pour cet élève.</p>";
 }
-echo "</ul>";
+
+// Ajout d'un bouton retour
+echo '<br><a href="profile.php">Retour au profil</a>';
 ?>
