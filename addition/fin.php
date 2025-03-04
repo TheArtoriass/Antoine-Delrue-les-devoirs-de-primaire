@@ -51,7 +51,7 @@ fclose($fp);
                             else
                                 echo '<h2>Fin du test.</h2>Tu as ' . $_SESSION['nbBonneReponse'] . ' bonne réponse sur ' . $_SESSION['nbQuestion'] . ' questions.';
 
-							if($_SESSION['nbBonneReponse']>=$_SESSION['nbMaxQuestions']*0.8){
+								if($_SESSION['nbBonneReponse']>=$_SESSION['nbMaxQuestions']*0.8){
 								echo '<h3>Félicitations !</h3>';
 								echo '<img src="./images/medailleOr.png" width="100px"><br />';
 							}else{								
