@@ -26,14 +26,14 @@ if (!$student) {
     exit;
 }
 
-echo "<h1>Résultats de " . htmlspecialchars($student['first_name']) . " " . htmlspecialchars($student['last_name']) . "</h1>";
+echo "<h1>📊 Résultats de " . htmlspecialchars($student['first_name']) . " " . htmlspecialchars($student['last_name']) . "</h1>";
 
 // Récupérer les exercices réalisés par l'élève
 $stmt = $pdo->prepare("SELECT * FROM exercises WHERE user_id = ?");
 $stmt->execute([$student_id]);
 $exercises = $stmt->fetchAll();
 
-echo "<h2>Exercices réalisés</h2>";
+echo "<h2>📝 Exercices réalisés</h2>";
 
 if (count($exercises) > 0) {
     echo "<ul>";
@@ -54,6 +54,43 @@ if (count($exercises) > 0) {
               </li>";
     }
     echo "</ul>";
+
+    // Calcul des statistiques
+    $total_exercises = count($exercises);
+    $scores = array_column($exercises, 'score'); // Récupérer tous les scores
+    $average_score = round(array_sum($scores) / $total_exercises, 2);
+    $best_score = max($scores);
+    $worst_score = min($scores);
+
+    // Calcul de la médiane
+    sort($scores);
+    $middle = floor($total_exercises / 2);
+    if ($total_exercises % 2 == 0) {
+        $median_score = round(($scores[$middle - 1] + $scores[$middle]) / 2, 2);
+    } else {
+        $median_score = $scores[$middle];
+    }
+
+    // Nombre de scores au-dessus et en dessous de la moyenne
+    $above_average = count(array_filter($scores, fn($s) => $s > $average_score));
+    $below_average = count(array_filter($scores, fn($s) => $s < $average_score));
+
+    // Calcul du taux de réussite (on considère un score > 50% comme une réussite)
+    $max_possible_score = 100; // Modifier selon ton barème
+    $success_rate = round((count(array_filter($scores, fn($s) => $s >= ($max_possible_score * 0.5))) / $total_exercises) * 100, 2);
+
+    echo "<h2>📊 Statistiques générales</h2>";
+    echo "<ul>
+            <li>📌 <strong>Nombre total d'exercices :</strong> $total_exercises</li>
+            <li>📈 <strong>Score moyen :</strong> $average_score</li>
+            <li>📊 <strong>Score médian :</strong> $median_score</li>
+            <li>🏆 <strong>Meilleur score :</strong> $best_score</li>
+            <li>💀 <strong>Pire score :</strong> $worst_score</li>
+            <li>📊 <strong>Scores au-dessus de la moyenne :</strong> $above_average</li>
+            <li>📉 <strong>Scores en dessous de la moyenne :</strong> $below_average</li>
+            <li>✅ <strong>Taux de réussite :</strong> $success_rate%</li>
+          </ul>";
+
 } else {
     echo "<p>Aucun exercice trouvé pour cet élève.</p>";
 }

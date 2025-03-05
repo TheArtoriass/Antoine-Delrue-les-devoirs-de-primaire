@@ -144,6 +144,7 @@ $score = array_pop($lines); // Dernière ligne = score
     </div>
 
     <br>
+    <button onclick="history.back()" class="back-button">Retour</button>
     <a href="profile.php" class="back-button">Retour au profil</a>
 
 </body>
