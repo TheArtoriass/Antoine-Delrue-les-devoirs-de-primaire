@@ -41,7 +41,7 @@ $stmt = $pdo->prepare("SELECT * FROM users WHERE role = 'enfant'");
 $stmt->execute();
 $children = $stmt->fetchAll();
 ?>
-
+<?php include 'header.php'; ?>
 <form method="POST" action="register.php">
     <div style="margin-bottom: 10px;">
         <label for="first_name">Prénom:</label>

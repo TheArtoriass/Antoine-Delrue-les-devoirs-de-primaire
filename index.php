@@ -7,20 +7,7 @@
     
     <body style="background-color:grey;">
         <center>
-            <?php
-                session_start();
-                if (!isset($_SESSION['user_id'])) {
-                    echo '<div style="margin-bottom: 20px;">
-                        <a href="register.php" style="margin-right: 15px;">Inscription</a>
-                        <a href="login.php" style="margin-right: 15px;">Connexion</a>
-                    </div>';
-                } else {
-                    echo '<div style="margin-bottom: 20px;">
-                        <a href="profile.php">Profil</a>
-                        <a href="logout.php" style="margin-left: 15px;">Déconnexion</a>
-                    </div>';
-                }
-            ?>
+        <?php include 'header.php'; ?>
             
             <table border="0" cellpadding="0" cellspacing="0">
                 <td style="width:1000px;height:430px;background-image:url('./images/NO.jpg');background-repeat:no-repeat;">

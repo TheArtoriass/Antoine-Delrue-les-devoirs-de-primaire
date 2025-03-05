@@ -11,11 +11,7 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Lien vers la page d'accueil et déconnexion
-echo '<div style="margin-bottom: 20px;">
-    <a href="index.php" style="margin-right: 15px;">Accueil</a>
-    <a href="logout.php" style="margin-right: 15px;">Déconnexion</a>
-</div>';
+include 'header.php'; 
 
 // Récupérer les informations de l'utilisateur
 $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
@@ -107,18 +103,31 @@ if ($user['role'] == 'enfant') {
     }
     echo "</ul>";
 
-    // Formulaire pour ajouter ou supprimer des enfants
-    echo '<h2>Ajouter ou supprimer des enfants</h2>';
-    echo "<p>Pour ajouter un nouvel enfant dans la famille, entrez son ID ci-dessous. Pour supprimer un enfant à cause d'un mauvais clique, entrez son ID dans le champ de suppression.</p>";
+    // Formulaire pour ajouter un enfant
+    echo '<h2>➕ Ajouter un enfant</h2>';
     echo '<form method="POST" action="update_children.php">';
-    echo '<label for="add_child">Ajouter un enfant (ID):</label>';
-    echo '<input type="text" name="add_child" id="add_child">';
-    echo '<button type="submit" name="action" value="add">Ajouter</button>';
+    echo '<label for="child_first_name">Prénom de l\'enfant :</label>';
+    echo '<input type="text" name="child_first_name" id="child_first_name" required>';
     echo '<br>';
-    echo '<label for="remove_child">Supprimer un enfant (ID):</label>';
-    echo '<input type="text" name="remove_child" id="remove_child">';
-    echo '<button type="submit" name="action" value="remove">Supprimer</button>';
+    echo '<label for="child_last_name">Nom de l\'enfant :</label>';
+    echo '<input type="text" name="child_last_name" id="child_last_name" required>';
+    echo '<br>';
+    echo '<button type="submit" name="action" value="add">Ajouter</button>';
     echo '</form>';
+
+    // Formulaire pour supprimer un enfant
+    if (count($children) > 0) {
+        echo '<h2>❌ Supprimer un enfant</h2>';
+        echo '<form method="POST" action="update_children.php">';
+        echo '<label for="remove_child">Sélectionnez un enfant :</label>';
+        echo '<select name="remove_child" id="remove_child">';
+        foreach ($children as $child) {
+            echo "<option value='" . htmlspecialchars($child['id']) . "'>" . htmlspecialchars($child['first_name']) . " " . htmlspecialchars($child['last_name']) . "</option>";
+        }
+        echo '</select>';
+        echo '<button type="submit" name="action" value="remove">Supprimer</button>';
+        echo '</form>';
+    }
 
    
 } elseif ($user['role'] == 'enseignant') {
@@ -133,17 +142,31 @@ if ($user['role'] == 'enfant') {
     }
     echo "</ul>";
 
-    // Formulaire pour ajouter ou supprimer des enfants
-    echo '<h2>Ajouter ou supprimer des enfants</h2>';
+   // Formulaire pour ajouter un élève
+    echo '<h2>➕ Ajouter un élève</h2>';
     echo '<form method="POST" action="update_students.php">';
-    echo '<label for="add_child">Ajouter un enfant (ID):</label>';
-    echo '<input type="text" name="add_child" id="add_child">';
-    echo '<button type="submit" name="action" value="add">Ajouter</button>';
+    echo '<label for="student_first_name">Prénom de l\'élève :</label>';
+    echo '<input type="text" name="student_first_name" id="student_first_name" required>';
     echo '<br>';
-    echo '<label for="remove_child">Supprimer un enfant (ID):</label>';
-    echo '<input type="text" name="remove_child" id="remove_child">';
-    echo '<button type="submit" name="action" value="remove">Supprimer</button>';
+    echo '<label for="student_last_name">Nom de l\'élève :</label>';
+    echo '<input type="text" name="student_last_name" id="student_last_name" required>';
+    echo '<br>';
+    echo '<button type="submit" name="action" value="add">Ajouter</button>';
     echo '</form>';
+
+    // Formulaire pour supprimer un élève
+    if (count($students) > 0) {
+        echo '<h2>❌ Supprimer un élève</h2>';
+        echo '<form method="POST" action="update_students.php">';
+        echo '<label for="remove_student">Sélectionnez un élève :</label>';
+        echo '<select name="remove_student" id="remove_student">';
+        foreach ($students as $student) {
+            echo "<option value='" . htmlspecialchars($student['id']) . "'>" . htmlspecialchars($student['first_name']) . " " . htmlspecialchars($student['last_name']) . "</option>";
+        }
+        echo '</select>';
+        echo '<button type="submit" name="action" value="remove">Supprimer</button>';
+        echo '</form>';
+    }
+
 }
 ?>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

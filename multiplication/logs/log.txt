@@ -27,3 +27,5 @@
 [04/03/2025 21h04m57s] - ::1 : question.php - ttest - Question numéro 1
 [04/03/2025 21h04m58s] - ::1 : correction.php - ttest - Question numéro 1
 [04/03/2025 21h05m00s] - ::1 : question.php - ttest - Question numéro 2
+[05/03/2025 09h46m27s] - ::1 : index.php
+[05/03/2025 09h47m27s] - ::1 : index.php

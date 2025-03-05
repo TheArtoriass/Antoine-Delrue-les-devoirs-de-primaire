@@ -110,6 +110,7 @@ $score = array_pop($lines); // Dernière ligne = score
     </style>
 </head>
 <body>
+    <?php include 'header.php'; ?>
 
     <h1>Historique de l'exercice</h1>
 

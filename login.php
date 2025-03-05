@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+<?php include 'header.php'; ?>
 
 <form method="POST" action="login.php">
     Email: <input type="email" name="email" required><br>

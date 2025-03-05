@@ -28,24 +28,12 @@
             $_POST['nbMaxQuestions']=10;
         ?> 
         <center>
+        <?php include(__DIR__ . '/../header.php');?>
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td style="width:1000px;height:430px;background-image:url('./images/NO.jpg');background-repeat:no-repeat;">
                         <center>
                         
-                        <?php
-                            if (!isset($_SESSION['user_id'])) {
-                                echo '<div style="margin-bottom: 20px;">
-                                    <a href="../register.php" style="margin-right: 15px;">Inscription</a>
-                                    <a href="../login.php" style="margin-right: 15px;">Connexion</a>
-                                </div>';
-                            } else {
-                                echo '<div style="margin-bottom: 20px;">
-                                    <a href="../profile.php">Profil</a>
-                                    <a href="../logout.php" style="margin-left: 15px;">Déconnexion</a>
-                                </div>';
-                            }
-                        ?>
                         
                         <h1>Bonjour !</h1><br />
                         <h2>Nous allons faire une dictée de <?php echo ''.$_SESSION['nbMaxQuestions'].'' ?> mots.</h2><br />
