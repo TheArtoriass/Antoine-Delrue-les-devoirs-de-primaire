@@ -1,0 +1,38 @@
+[06/03/2025 10h19m03s] - ::1 - GET - index.php - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m04s] - ::1 - POST - question.php - test - Question numéro 1 - Temps passé : 79s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m05s] - ::1 - POST - correction.php - test - Question numéro 1 - Temps passé : 1s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m05s] - ::1 - POST - question.php - test - Question numéro 2 - Temps passé : 0s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m05s] - ::1 - POST - correction.php - test - Question numéro 2 - Temps passé : 0s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m05s] - ::1 - POST - question.php - test - Question numéro 3 - Temps passé : 0s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m05s] - ::1 - POST - correction.php - test - Question numéro 3 - Temps passé : 0s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m05s] - ::1 - POST - question.php - test - Question numéro 4 - Temps passé : 0s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m06s] - ::1 - POST - correction.php - test - Question numéro 4 - Temps passé : 1s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m06s] - ::1 - POST - question.php - test - Question numéro 5 - Temps passé : 0s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m06s] - ::1 - POST - correction.php - test - Question numéro 5 - Temps passé : 0s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m06s] - ::1 - POST - question.php - test - Question numéro 6 - Temps passé : 0s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m06s] - ::1 - POST - correction.php - test - Question numéro 6 - Temps passé : 0s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m06s] - ::1 - POST - question.php - test - Question numéro 7 - Temps passé : 0s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m07s] - ::1 - POST - correction.php - test - Question numéro 7 - Temps passé : 1s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m07s] - ::1 - POST - question.php - test - Question numéro 8 - Temps passé : 0s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m07s] - ::1 - POST - correction.php - test - Question numéro 8 - Temps passé : 0s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m07s] - ::1 - POST - question.php - test - Question numéro 9 - Temps passé : 0s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m07s] - ::1 - POST - correction.php - test - Question numéro 9 - Temps passé : 0s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m09s] - ::1 - POST - question.php - test - Question numéro 10 - Temps passé : 2s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m10s] - ::1 - POST - correction.php - test - Question numéro 10 - Temps passé : 1s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h19m10s] - ::1 - POST - fin.php - test - Temps passé : 0s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 10h30m04s] - ::1 - GET - index.php - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h03m04s] - ::1 - GET - index.php - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h04m33s] - ::1 - GET - index.php - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h06m17s] - ::1 - GET - index.php - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h06m18s] - ::1 - GET - affiche_resultat.php - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h06m22s] - ::1 - GET - index.php - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h06m23s] - ::1 - GET - affiche_resultat.php - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h35m45s] - ::1 - GET - index.php - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h35m46s] - ::1 - GET - affiche_resultat.php - Temps passé : 7s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h35m48s] - ::1 - GET - affiche_resultat.php - test - Temps passé : 2s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h36m01s] - ::1 - GET - index.php - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h36m02s] - ::1 - GET - affiche_resultat.php - Temps passé : 14s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h36m03s] - ::1 - GET - affiche_resultat.php - test - Temps passé : 1s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h37m32s] - ::1 - GET - index.php - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h37m33s] - ::1 - GET - affiche_resultat.php - Temps passé : 90s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h37m35s] - ::1 - GET - affiche_resultat.php - test - Temps passé : 2s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36

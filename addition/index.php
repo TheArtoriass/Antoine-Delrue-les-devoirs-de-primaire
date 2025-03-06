@@ -11,6 +11,7 @@
 	$_SESSION['prenom']="";
 	$_SESSION['historique']="";
 	$_SESSION['origine']="index";
+	
 ?>
 
 <!doctype html>
@@ -43,7 +44,9 @@
 								<input type="submit" value="Commencer">
 							</form>
 						
-						
+							<br />
+                            <a href="affiche_resultat.php">Voir les résultats</a>
+                        
 						
 						
 						

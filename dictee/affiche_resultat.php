@@ -6,29 +6,37 @@
 	</head>
 	<body style="background-color:grey;">
 		<center>
+		<?php include(__DIR__ . '/../header.php');?>
 			<table border="0" cellpadding="0" cellspacing="0">
 				<tr>
 					<td style="width:1000px;height:430px;background-image:url('./images/NO.jpg');background-repeat:no-repeat;">
 						<center>
 						
 							<?php
-								if($_GET['prenomRes']==""){
-									include 'utils.php';
-									log_adresse_ip("logs/log.txt","affiche_resultat.php");
-							?>
+                                include 'utils.php';
+								$role = $_SESSION['user_role'];
+								$prenom = isset($_SESSION['user_first_name']) ? htmlspecialchars($_SESSION['user_first_name']) : '';
+								$nom = isset($_SESSION['user_last_name']) ? htmlspecialchars($_SESSION['user_last_name']) : '';
+
+                                if (!isset($_GET['prenomRes']) || $_GET['prenomRes'] == "") {
+                                    log_adresse_ip("logs/log.txt", "affiche_resultat.php");
+                            ?>
 						
 						
 						
 							<h3>Quel est le prénom de l'enfant ?</h3><br />
 							<form action="./affiche_resultat.php" method="get">
-								<input type="text" id="prenomRes" name="prenomRes" autocomplete="off"><br /><br /><br />
+								<input type="text" id="prenomRes" name="prenomRes" autocomplete="off"
+									value="<?php echo $prenom; ?>" <?php echo ($role == 'enfant') ? 'readonly' : ''; ?>><br /><br />
+								<input type="text" id="nomRes" name="nomRes" autocomplete="off"
+									value="<?php echo $nom; ?>" <?php echo ($role == 'enfant') ? 'readonly' : ''; ?>><br /><br />
 								<input type="submit" value="Afficher les résultats">
 							</form>
 						
 						
 							<?php
 								}else{
-									include 'utils.php';
+								
 									log_adresse_ip("logs/log.txt","affiche_resultat.php - ".$_GET['prenomRes']);
 									echo '<h1>Résultats de '.$_GET['prenomRes'].'</h1>';
 									$total=0;
@@ -50,6 +58,25 @@
 										echo '<h2>TOTAL : '.$total.' POINTS</h2>';
 									else
 										echo '<h2>TOTAL : '.$total.' POINT</h2>';
+								}
+								if ($role == 'parent') {
+									// Vérifiez si l'enfant appartient au parent
+									$stmt = $pdo->prepare("SELECT * FROM users WHERE id IN (SELECT child_id FROM user_relationships WHERE parent_id = ?) AND first_name = ? AND last_name = ?");
+									$stmt->execute([$_SESSION['user_id'], $_GET['prenomRes'], $_GET['nomRes']]);
+									$child = $stmt->fetch();
+									if (!$child) {
+										echo "Cet enfant ne vous appartient pas.";
+										exit;
+									}
+								} elseif ($role == 'enseignant') {
+									// Vérifiez si l'enfant appartient à l'enseignant
+									$stmt = $pdo->prepare("SELECT * FROM users WHERE id IN (SELECT child_id FROM user_teacher_relationships WHERE teacher_id = ?) AND first_name = ? AND last_name = ?");
+									$stmt->execute([$_SESSION['user_id'], $_GET['prenomRes'], $_GET['nomRes']]);
+									$child = $stmt->fetch();
+									if (!$child) {
+										echo "Cet enfant ne vous appartient pas.";
+										exit;
+									}
 								}
 							?>
 							

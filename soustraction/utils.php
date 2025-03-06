@@ -2,14 +2,48 @@
 // log adresse ip
 // paramètre : nom du fichier de log
 function log_adresse_ip($cheminFichierLog, $nomPage) {
+    date_default_timezone_set('Europe/Paris');
+    
     $adresseIP = $_SERVER['REMOTE_ADDR'];
-    $fichierLog = fopen($cheminFichierLog, "a");
-    $tdate=getdate();
-    $jour=sprintf("%02.2d",$tdate["mday"])."/".sprintf("%02.2d",$tdate["mon"])."/".$tdate["year"];
-    $heure=sprintf("%02.2d",$tdate["hours"])."h".sprintf("%02.2d",$tdate["minutes"])."m".sprintf("%02.2d",$tdate["seconds"])."s";
-    $d="[".$jour." ".$heure."]";
-    fwrite($fichierLog,$d." - ".$adresseIP." : ".$nomPage."\n");
-    fclose($fichierLog);
+    $userAgent = $_SERVER['HTTP_USER_AGENT'];
+    $httpMethod = $_SERVER['REQUEST_METHOD'];
+    $dateTime = new DateTime();
+    $jour = $dateTime->format('d/m/Y');
+    $heure = $dateTime->format('H\hi\ms\s');
+    $d = "[" . $jour . " " . $heure . "]";
+
+    // Calculer le temps passé sur la page précédente
+    $tempsPasse = '';
+    if (isset($_SESSION['dernierAcces'])) {
+        $dernierAcces = $_SESSION['dernierAcces'];
+        $tempsPasse = $dateTime->getTimestamp() - $dernierAcces;
+        $tempsPasse = " - Temps passé : " . $tempsPasse . "s";
+    }
+
+    // Mettre à jour le dernier accès
+    $_SESSION['dernierAcces'] = $dateTime->getTimestamp();
+
+    $logEntry = $d . " - " . $adresseIP . " - " . $httpMethod . " - " . $nomPage . $tempsPasse . " - " . $userAgent . "\n";
+
+    // Créer le dossier avec la date du jour s'il n'existe pas
+    $dossierLog = dirname($cheminFichierLog) . '/' . $dateTime->format('Y-m-d');
+    if (!is_dir($dossierLog)) {
+        mkdir($dossierLog, 0777, true);
+    }
+
+    // Chemin complet du fichier de log
+    $cheminFichierLogComplet = $dossierLog . '/' . basename($cheminFichierLog);
+
+    try {
+        $fichierLog = fopen($cheminFichierLogComplet, "a");
+        if ($fichierLog === false) {
+            throw new Exception("Erreur lors de l'ouverture du fichier de log : " . $cheminFichierLogComplet);
+        }
+        fwrite($fichierLog, $logEntry);
+        fclose($fichierLog);
+    } catch (Exception $e) {
+        error_log($e->getMessage());
+    }
 }
 ?>
 

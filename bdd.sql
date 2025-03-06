@@ -16,7 +16,6 @@ CREATE TABLE exercises (
     user_id INT NOT NULL,
     exercise_type VARCHAR(50) NOT NULL,
     score INT NOT NULL,
-    errors TEXT,
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );

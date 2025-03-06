@@ -42,6 +42,10 @@
                             <input type="text" id="prenom" name="prenom" autocomplete="off" autofocus value="<?php echo isset($_SESSION['user_first_name']) ? htmlspecialchars($_SESSION['user_first_name']) : ''; ?>"><br /><br /><br />
                             <input type="submit" value="Commencer">
                         </form>
+
+                        <br />
+                            <a href="affiche_resultat.php">Voir les résultats</a>
+                        
                         
                         </center>
                     </td>
