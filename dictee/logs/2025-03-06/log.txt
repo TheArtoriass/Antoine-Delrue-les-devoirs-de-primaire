@@ -35,3 +35,12 @@
 [06/03/2025 11h35m37s] - ::1 - GET - index.php - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
 [06/03/2025 11h35m38s] - ::1 - GET - affiche_resultat.php - Temps passé : 73s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
 [06/03/2025 11h35m39s] - ::1 - GET - affiche_resultat.php - test - Temps passé : 1s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h49m37s] - ::1 - GET - index.php - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h49m38s] - ::1 - GET - affiche_resultat.php - Temps passé : 31s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h49m39s] - ::1 - GET - affiche_resultat.php - prof - Temps passé : 1s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h51m54s] - ::1 - GET - index.php - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h51m58s] - ::1 - GET - affiche_resultat.php - Temps passé : 9s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h52m01s] - ::1 - GET - affiche_resultat.php - test - Temps passé : 3s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h52m55s] - ::1 - GET - index.php - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 11h52m56s] - ::1 - GET - affiche_resultat.php - Temps passé : 3s - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
+[06/03/2025 12h12m31s] - ::1 - GET - index.php - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36

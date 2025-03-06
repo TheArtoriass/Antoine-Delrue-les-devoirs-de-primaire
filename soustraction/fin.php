@@ -6,6 +6,11 @@ include 'utils.php';
 include '../db.php'; // Connexion à la base de données
 session_start();
 
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../../login.php');
+    exit();
+}
+
 log_adresse_ip("logs/log.txt", "fin.php - " . $_SESSION['prenom']);
 
 $_SESSION['origine'] = "fin";

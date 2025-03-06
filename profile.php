@@ -105,6 +105,8 @@ if ($user['role'] == 'enfant') {
 
     // Formulaire pour ajouter un enfant
     echo '<h2>➕ Ajouter un enfant</h2>';
+    echo '<label>Vous avez un autre enfant ? Ajoutez-le :</label>';
+    echo '<br>';echo '<br>';
     echo '<form method="POST" action="update_children.php">';
     echo '<label for="child_first_name">Prénom de l\'enfant :</label>';
     echo '<input type="text" name="child_first_name" id="child_first_name" required>';
@@ -118,6 +120,9 @@ if ($user['role'] == 'enfant') {
     // Formulaire pour supprimer un enfant
     if (count($children) > 0) {
         echo '<h2>❌ Supprimer un enfant</h2>';
+
+        echo '<label>Un mauvais clic ou un enfant qui a fini sa primaire ? Supprimez-le :</label>';
+        echo '<br>';echo '<br>';
         echo '<form method="POST" action="update_children.php">';
         echo '<label for="remove_child">Sélectionnez un enfant :</label>';
         echo '<select name="remove_child" id="remove_child">';
@@ -144,6 +149,8 @@ if ($user['role'] == 'enfant') {
 
    // Formulaire pour ajouter un élève
     echo '<h2>➕ Ajouter un élève</h2>';
+    echo '<label>Un nouvel élève ? Ajoutez-le :</label>';
+    echo '<br><br>';
     echo '<form method="POST" action="update_students.php">';
     echo '<label for="student_first_name">Prénom de l\'élève :</label>';
     echo '<input type="text" name="student_first_name" id="student_first_name" required>';

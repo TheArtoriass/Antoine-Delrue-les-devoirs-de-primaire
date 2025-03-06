@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../../login.php');
+    exit();
+}
+?>
 <!doctype html>
 <html lang="fr">
 	<head>
@@ -14,7 +21,7 @@
 						
 						<?php
                                 include 'utils.php';
-								$role = $_SESSION['user_role'];
+								$role = isset($_SESSION['user_role']) ? $_SESSION['user_role'] : '';
 								$prenom = isset($_SESSION['user_first_name']) ? htmlspecialchars($_SESSION['user_first_name']) : '';
 								$nom = isset($_SESSION['user_last_name']) ? htmlspecialchars($_SESSION['user_last_name']) : '';
 
@@ -59,25 +66,7 @@
 									else
 										echo '<h2>TOTAL : '.$total.' POINT</h2>';
 								}
-								if ($role == 'parent') {
-									// Vérifiez si l'enfant appartient au parent
-									$stmt = $pdo->prepare("SELECT * FROM users WHERE id IN (SELECT child_id FROM user_relationships WHERE parent_id = ?) AND first_name = ? AND last_name = ?");
-									$stmt->execute([$_SESSION['user_id'], $_GET['prenomRes'], $_GET['nomRes']]);
-									$child = $stmt->fetch();
-									if (!$child) {
-										echo "Cet enfant ne vous appartient pas.";
-										exit;
-									}
-								} elseif ($role == 'enseignant') {
-									// Vérifiez si l'enfant appartient à l'enseignant
-									$stmt = $pdo->prepare("SELECT * FROM users WHERE id IN (SELECT child_id FROM user_teacher_relationships WHERE teacher_id = ?) AND first_name = ? AND last_name = ?");
-									$stmt->execute([$_SESSION['user_id'], $_GET['prenomRes'], $_GET['nomRes']]);
-									$child = $stmt->fetch();
-									if (!$child) {
-										echo "Cet enfant ne vous appartient pas.";
-										exit;
-									}
-								}
+								
 							?>
 							
 							
