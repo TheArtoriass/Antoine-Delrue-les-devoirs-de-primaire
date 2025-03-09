@@ -1,1 +1,0 @@
-./resultats/test-20250306-144110.txt

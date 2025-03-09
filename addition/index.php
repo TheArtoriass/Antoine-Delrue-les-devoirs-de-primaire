@@ -37,15 +37,19 @@
 						
 						
 						<h1>Bonjour !</h1><br />
-							<h2>Nous allons faire du calcul mental. Tu devras faire <?php echo ''.$_SESSION['nbMaxQuestions'].'' ?> calculs.</h2><br />
-							<h3>Mais avant, Quel est ton prénom ?</h3>
-							<form action="./question.php" method="post">
-								<input type="text" id="prenom" name="prenom" autocomplete="off" autofocus value="<?php echo isset($_SESSION['user_first_name']) ? htmlspecialchars($_SESSION['user_first_name']) : ''; ?>"><br /><br /><br />
-								<input type="submit" value="Commencer">
-							</form>
-						
-							<br />
-                            <a href="affiche_resultat.php">Voir les résultats</a>
+                        <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'enfant'): ?>
+                            <h2>Nous allons faire du calcul mental. Tu devras faire <?php echo ''.$_SESSION['nbMaxQuestions'].'' ?> calculs.</h2><br />
+                            <form action="./question.php" method="post">
+                                <input type="hidden" id="prenom" name="prenom" value="<?php echo isset($_SESSION['user_first_name']) ? htmlspecialchars($_SESSION['user_first_name']) : ''; ?>">
+                                <input type="submit" value="Commencer">
+                            </form>
+                            <br/>
+                            <a href="affiche_resultat.php">Voir les résultats du calcul mental</a>
+
+                        <?php else: ?>
+                            <h3>Résultats addition</h3>
+                            <a href="affiche_resultat.php">Voir les résultats du calcul mental</a>
+                        <?php endif; ?>
                         
 						
 						

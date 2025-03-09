@@ -34,19 +34,20 @@
                     <td style="width:1000px;height:430px;background-image:url('./images/NO.jpg');background-repeat:no-repeat;">
                         <center>
                         
-                        
                         <h1>Bonjour !</h1><br />
-                        <h2>Tu vas devoir compléter <?php echo ''.$_SESSION['nbMaxQuestions'].'' ?> phrases avec un verbe conjugué.</h2><br />
-                        <h3>Mais avant, Quel est ton prénom ?</h3>
-                        <form action="./question.php" method="post">
-                            <input type="text" id="prenom" name="prenom" autocomplete="off" autofocus value="<?php echo isset($_SESSION['user_first_name']) ? htmlspecialchars($_SESSION['user_first_name']) : ''; ?>"><br /><br /><br />
-                            <input type="submit" value="Commencer">
-                        </form>
-
-                        <br />
+                        <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'enfant'): ?>
+                            <h2>Tu vas devoir compléter <?php echo ''.$_SESSION['nbMaxQuestions'].'' ?> phrases avec un verbe conjugué.</h2><br />
+                            <form action="./question.php" method="post">
+                                <input type="hidden" id="prenom" name="prenom" value="<?php echo isset($_SESSION['user_first_name']) ? htmlspecialchars($_SESSION['user_first_name']) : ''; ?>">
+                                <input type="submit" value="Commencer">
+                            </form>
+                            <br/>
                             <a href="affiche_resultat.php">Voir les résultats</a>
-                        
-                        
+                        <?php else: ?>
+                            <h3>Résultats de conjugaison de phrases</h3>
+                            <a href="affiche_resultat.php">Voir les résultats</a>
+                        <?php endif; ?>
+
                         </center>
                     </td>
                     <td style="width:280px;height:430px;background-image:url('./images/NE.jpg');background-repeat:no-repeat;"></td>

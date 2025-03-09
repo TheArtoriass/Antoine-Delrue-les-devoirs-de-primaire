@@ -1,1 +1,0 @@
-./resultats/test-20250304-201808.txt
