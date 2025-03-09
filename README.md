@@ -1,41 +1,71 @@
-https://github.com/synave/les-devoirs-de-primaire
+# les-devoirs-de-primaire Antoine Delrue
+Site permettant aux enfants en primaire de faire des exercices de maths/français.
 
-# les-devoirs-de-primaire
-Site permettant aux enfants en primaire de faire des exercices de maths/français et peut être plus par la suite.
+## ⚙️ Installation
+1.  **Cloner le dépôt en local** ou **Téléchargez le code**
+   ```bash
+    https://github.com/TheArtoriass/Antoine-Delrue-les-devoirs-de-primaire.git
+   ```
 
-Pour un démonstration du site, vous pouvez vous rendre [ici](https://mes-devoirs.jrcan.dev/).
+2. **Configurer le serveur web**  
+   - Utilisez un serveur local comme **WAMP**, **MAMP**... pour héberger le projet.  
+   - Configurez le serveur vers le répertoire du projet.
 
-# Installation :
-1 - Téléchargez le code
+3. **Démarrer votre serveur**
+   - Lancez le serveur (par exemple, **MAMP** ou **XAMPP**) pour pouvoir accéder à l’application via votre navigateur.
 
-2 - Transférez-le sur un hébergement avec php (pas de base de données utilisée)
+4. **Après le transfert (Si besoin)**
+    - dans les répertoires addition, conjugaison_phrase, conjugaison_verbe, dictee, multiplication et soustraction, changez les droits en 777 pour les sous-répertoires logs, resultats et supprime
 
-3 - Après le transfert, dans les répertoires addition, conjugaison_phrase, conjugaison_verbe, dictee, multiplication et soustraction, changez les droits en 777 pour les sous-répertoires logs, resultats et supprime
+5. **Importer la base de données**  
+   - Accédez à [phpMyAdmin](http://localhost/phpMyAdmin/).  
+   - Importez le fichier `bdd.sql`.
+
+6. **Mettre à jour les informations de connexion**  
+   - Modifiez le fichier `db.php` avec vos identifiants MySQL.
+
+7. **Lancer l’application**  
+   - Accédez à [http://localhost/](http://localhost/) dans votre navigateur.
+---
 
 # Utilisation :
-Rendez-vous sur la page d'accueil puis sélectionnez l'exercice à réaliser. La configuration des exercices (changement du temps pour les conjugaisons, des bornes des nombres pour les exercices de math, etc.).
 
-Pour voir les résultats d'un enfant, rendez-vous sur la page d'accueil, entrez dans l'exercice pour lequel vous voulez les résultats puis, dans la barre d'adresse, modifiez le index.php par affiche_resultat.php
+Rendez-vous sur la page d'accueil en tant qu'enfant puis sélectionnez l'exercice à réaliser. Pour visualiser ses exercices, allez sur le profil ou dans le thème et consultez "Voir les résultats".
 
-# TODO
-La refonte graphique n'est pas demandée. Si vous voulez modifier le design, vous pouvez mais conservez le style d'origine et ne partez pas sur le design du site des impots !
+Pour les parents/enseignants, pour voir les résultats d'un enfant, rendez-vous sur la page d'accueil, entrez dans l'exercice pour lequel vous voulez les résultats puis cliquez sur "Voir les résultats" ou dans le profil, cliquez sur le nom de l'enfant et recliquez sur les résultats pour plus de détails. Vous pouvez, dans les deux rôles, supprimer ou ajouter des enfants.
 
-1 - Créer un système de connexion avec profil (10 points) : inclut l'inscription, la connexion et la sauvegarde des différents exercices réalisés avec visualisation de stats sur son profil.
+## Compte fictif pour visiter
 
-1.5 - Ajout de rôle aux utilisateurs (10 points) : ajout des rôles enfant, enseignant et parent. Les parents peuvent voir les résultats de leurs enfants. Les enseignants peuvent voir les résultats de leurs élèves. Les enfants peuvent faire des exercices. Dans l'idéal, il faudrait que les enseignants puissent configurer (voir point 5) les exercices pour les enfants.
+| Prénom     | Nom      | Email                          | Mot de passe   | Rôle       | Enfants          |
+|------------|----------|-------------------------------|----------------|------------|------------------|
+| Enfant     | exemple  | enfant.exemple@hotmail.com     | sae_enfant     | Enfant     | -                |
+| Parent     | exemple  | parent.exemple@gmail.com       | sae_parent     | Parent     | Enfant exemple   |
+| Enseignant | exemple  | enseignant.exemple@hotmail.fr  | sae_enseignant | Enseignant | Enfant exemple   |
 
-2 - Améliorer le système de logs (3 points) : Voir les répertoires logs de chaque exercice. Faire mieux :)
+--- 
+# Partie réalisée
 
-3 - Utiliser une base de données (3 points) : peut facilement être combiné avec le système de connexion (point 1 et 1.5).
+1. **Créer un système de connexion avec profil (10 points)** : inclut l'inscription, la connexion et la sauvegarde des différents exercices réalisés avec visualisation de statistiques sur son profil.
+   - **Enfant** : Peut faire des exercices.
+   - **Enseignant** : Peut voir les résultats de leurs élèves.
+   - **Parent** : Peut voir les résultats de leurs enfants.
 
-4 - Améliorer le système d'affichage des résultats (2 points) : Peut être naturellement combiné avec le point 1 (stats sur profil).
+1.5. **Ajout de rôle aux utilisateurs (10 points)** : ajout des rôles enfant, enseignant et parent. Les parents peuvent voir les résultats de leurs enfants. Les enseignants peuvent voir les résultats de leurs élèves. Les enfants peuvent faire des exercices.
 
-5 - Ajouter la possibilité de configurer les exercices (3 points) : doit donner la possibilité à l'utilisateur de configurer l'exercice. Les paramètrages possibles sont dépendants de l'exercice selectionné. Exemple : pour la multiplication, on peut, par exemple, proposer des bornes min et max. Si l'enfant est en CP, l'utilisateur choisira entre 1 et 9 pour les deux nombres. En CE2, il choisira entre 1 et 1000 pour le nombre de gauche et entre 1 et 9 pour celui de droite. En CM2, il choisir entre 1 et 1000 pour les deux nombres.
+2. **Améliorer le système de logs (3 points)**
+   - Dossier pour le jour
+   - Moteur de recherche enregistré
+   - Méthode GET ou POST
+   - Date et heure actuelles (new DateTime())
+   - Temps passé sur la page précédente
 
-6 - Création d'une application pour faire du text-to-speech (10 points) : Application de bureau linux, en ligne de commande ou en back office de ce site. Attention ! De nombreux outils simples d'utilisation ne fournissent pas de résultat satisfisant !
+3. **Utiliser une base de données (3 points)**
+   - Les utilisateurs, le score des exercices et les relations sont stockés en base de données.
 
-7 - Documentation complète du projet (3 points) : commentaire dans le code, manuel utilisateur, manuel du développeur, document pour l'aide à l'installation, etc.
+4. **Améliorer le système d'affichage des résultats (2 points)**
+   - On peut également voir les résultats pour chaque thème.
 
-# Comment rendre son travail
+Autre : Header, commentaires dans la plupart des nouveaux fichiers, document pour l'aide à l'installation, pas d'exercices en non connecté, retirer les exercices pour les enseignants et parents, ajout/suppression d'enfants, suppression des exercices, etc.
 
-Voir Cours Moodle SAES6 maintenance
+
+
