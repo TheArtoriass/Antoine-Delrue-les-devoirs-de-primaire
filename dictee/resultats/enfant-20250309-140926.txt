@@ -1,0 +1,11 @@
+crier
+inviter
+crier
+panique
+remédier
+passant
+tellement
+********;inviter
+********;remercier
+panique
+8

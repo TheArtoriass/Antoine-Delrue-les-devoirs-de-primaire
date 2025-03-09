@@ -75,10 +75,6 @@ if (count($exercises) > 0) {
     $above_average = count(array_filter($scores, fn($s) => $s > $average_score));
     $below_average = count(array_filter($scores, fn($s) => $s < $average_score));
 
-    // Calcul du taux de réussite (on considère un score > 50% comme une réussite)
-    $max_possible_score = 100; // Modifier selon ton barème
-    $success_rate = round((count(array_filter($scores, fn($s) => $s >= ($max_possible_score * 0.5))) / $total_exercises) * 100, 2);
-
     echo "<h2>📊 Statistiques générales</h2>";
     echo "<ul>
             <li>📌 <strong>Nombre total d'exercices :</strong> $total_exercises</li>
@@ -88,7 +84,6 @@ if (count($exercises) > 0) {
             <li>💀 <strong>Pire score :</strong> $worst_score</li>
             <li>📊 <strong>Scores au-dessus de la moyenne :</strong> $above_average</li>
             <li>📉 <strong>Scores en dessous de la moyenne :</strong> $below_average</li>
-            <li>✅ <strong>Taux de réussite :</strong> $success_rate%</li>
           </ul>";
 
 } else {
