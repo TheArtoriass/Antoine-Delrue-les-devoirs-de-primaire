@@ -10,6 +10,5 @@ done
 # Message d'information avant de lancer Apache
 echo -e "\n✅ Le site est UP : http://localhost:8000/ (cliquez pour ouvrir)\n"
 
-
 # Lancer Apache
 exec apache2-foreground
