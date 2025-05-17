@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    echo "Inscription réussie !";
+    // echo "Inscription réussie !";
     // Rediriger vers la page de connexion après l'inscription réussie
     header('Location: login.php');
     exit;

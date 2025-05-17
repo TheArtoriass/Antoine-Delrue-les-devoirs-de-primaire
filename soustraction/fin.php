@@ -84,7 +84,7 @@ file_put_contents($history_path, $result_path);
                                 <input type="submit" value="Recommencer" autofocus>
                             </form>
                             <br/>
-                            <form action="http://localhost/index.php" method="get">
+                            <form action="../../index.php" method="get">
                                 <input type="submit" value="Retour à l'accueil">
                             </form>
                         </center>
