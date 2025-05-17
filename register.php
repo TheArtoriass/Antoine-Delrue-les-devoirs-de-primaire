@@ -3,6 +3,14 @@
 include 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Vérification des champs
+    if (empty($_POST['first_name'])) $errors[] = "Le prénom est requis.";
+    if (empty($_POST['last_name'])) $errors[] = "Le nom est requis.";
+    if (empty($_POST['email'])) $errors[] = "L'email est requis.";
+    if (empty($_POST['password'])) $errors[] = "Le mot de passe est requis.";
+    if (empty($_POST['role'])) $errors[] = "Le rôle est requis.";
+
+
     // Récupérer les données du formulaire
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
@@ -120,6 +128,17 @@ $children = $stmt->fetchAll();
 <?php include 'header.php'; ?>
 <body class="body">
     <div class="container">
+
+     <!-- Affichage des erreurs -->
+    <?php if (!empty($errors)): ?>
+        <div class="error-list">
+            <ul>
+                <?php foreach ($errors as $error): ?>
+                    <li><?php echo htmlspecialchars($error); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
 
         <h2 class="title">Inscription</h2>
         <form class="form" method="POST" action="register.php">
