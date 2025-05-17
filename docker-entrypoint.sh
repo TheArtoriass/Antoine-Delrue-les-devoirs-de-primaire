@@ -7,5 +7,9 @@ until php -r "new PDO('mysql:host=db;dbname=sae_maintenance', 'root', 'root');" 
   sleep 2
 done
 
+# Message d'information avant de lancer Apache
+echo -e "\n✅ Le site est UP : http://localhost:8000/ (cliquez pour ouvrir)\n"
+
+
 # Lancer Apache
 exec apache2-foreground

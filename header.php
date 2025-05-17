@@ -22,14 +22,14 @@ if (session_status() == PHP_SESSION_NONE) {
 </style>
 <div class="header">
     <?php
-    if (!isset($_SESSION['user_id'])) {
-        echo '<a href="/index.php">Accueil</a>
-              <a href="/register.php">Inscription</a>
-              <a href="/login.php">Connexion</a>';
+     if (!isset($_SESSION['user_id'])) {
+        echo '<a href="./index.php">Accueil</a>
+              <a href="./register.php">Inscription</a>
+              <a href="./login.php">Connexion</a>';
     } else {
-        echo '<a href="/index.php">Accueil</a>
-              <a href="/profile.php">Profil</a>
-              <a href="/logout.php">Déconnexion</a>';
+        echo '<a href="./index.php">Accueil</a>
+              <a href="./profile.php">Profil</a>
+              <a href="./logout.php">Déconnexion</a>';
     }
     ?>
 </div>
