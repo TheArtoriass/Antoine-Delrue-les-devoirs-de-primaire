@@ -1,7 +1,7 @@
 # les-devoirs-de-primaire Antoine Delrue
 Site permettant aux enfants en primaire de faire des exercices de maths/français.
 
-## ⚙️ Installation
+## ⚙️ Installation sans docker
 1.  **Cloner le dépôt en local** ou **Téléchargez le code**
    ```bash
     https://github.com/TheArtoriass/Antoine-Delrue-les-devoirs-de-primaire.git
