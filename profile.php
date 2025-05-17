@@ -112,9 +112,9 @@ if ($user['role'] == 'enfant') {
     echo '<button type="submit" name="action" value="add">Ajouter</button>';
     echo '</form>';
 
-    // Formulaire pour supprimer un enfant
+    // Formulaire pour Retirer un enfant
     if (count($children) > 0) {
-        echo '<h2>❌ Supprimer un enfant</h2>';
+        echo '<h2>❌ Retirer un enfant</h2>';
 
         echo '<label>Un mauvais clic ou un enfant qui a fini sa primaire ? Supprimez-le :</label>';
         echo '<br>';echo '<br>';

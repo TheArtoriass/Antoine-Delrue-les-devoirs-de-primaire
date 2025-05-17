@@ -26,6 +26,34 @@ Site permettant aux enfants en primaire de faire des exercices de maths/françai
 
 7. **Lancer l’application**  
    - Accédez à [http://localhost/](http://localhost/) dans votre navigateur.
+
+## Installation Docker
+
+1. Cloner le dépôt en local
+
+```bash
+git clone https://github.com/TheArtoriass/Antoine-Delrue-les-devoirs-de-primaire.git
+cd Antoine-Delrue-les-devoirs-de-primaire
+```
+
+2. Vérifier que le fichier bdd.sql est bien placé dans le dossier `db/init/`
+   (Il sera importé automatiquement au premier lancement du conteneur MySQL)
+
+3. Construire et lancer les conteneurs Docker
+```bash
+docker-compose up --build
+```
+
+4. Attendre que les services soient prêts (cela peut prendre quelques secondes au premier lancement)
+
+5. Accéder à l’application :
+   [http://localhost:8000/](http://localhost:8000/)
+
+6. Pour arrêter les conteneurs :
+```bash
+docker-compose down
+```
+
 ---
 
 # Utilisation :

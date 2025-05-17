@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['user_last_name'] = $user['last_name'];
         $_SESSION['user_role'] = $user['role'];
         header('Location: index.php');
+        exit;
     } else {
         echo "Email ou mot de passe incorrect.";
     }

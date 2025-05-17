@@ -1,5 +1,5 @@
 <?php
-$host = 'localhost';
+$host = 'db';
 $db = 'sae_maintenance';
 $user = 'root';
 $pass = 'root';
