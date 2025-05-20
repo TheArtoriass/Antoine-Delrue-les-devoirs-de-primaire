@@ -1,32 +1,6 @@
 # les-devoirs-de-primaire Antoine Delrue
 Site permettant aux enfants en primaire de faire des exercices de maths/français.
 
-## ⚙️ Installation sans docker
-1.  **Cloner le dépôt en local** ou **Téléchargez le code**
-   ```bash
-    https://github.com/TheArtoriass/Antoine-Delrue-les-devoirs-de-primaire.git
-   ```
-
-2. **Configurer le serveur web**  
-   - Utilisez un serveur local comme **WAMP**, **MAMP**... pour héberger le projet.  
-   - Configurez le serveur vers le répertoire du projet.
-
-3. **Démarrer votre serveur**
-   - Lancez le serveur (par exemple, **MAMP** ou **XAMPP**) pour pouvoir accéder à l’application via votre navigateur.
-
-4. **Après le transfert (Si besoin)**
-    - dans les répertoires addition, conjugaison_phrase, conjugaison_verbe, dictee, multiplication et soustraction, changez les droits en 777 pour les sous-répertoires logs, resultats et supprime
-
-5. **Importer la base de données**  
-   - Accédez à [phpMyAdmin](http://localhost/phpMyAdmin/).  
-   - Importez le fichier `bdd.sql`.
-
-6. **Mettre à jour les informations de connexion**  
-   - Modifiez le fichier `db.php` avec vos identifiants MySQL.
-
-7. **Lancer l’application**  
-   - Accédez à [http://localhost/](http://localhost/) dans votre navigateur.
-
 ## Installation Docker
 
 1. Cloner le dépôt en local
